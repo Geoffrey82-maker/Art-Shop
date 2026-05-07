@@ -1,0 +1,338 @@
+[
+    {
+        "id": 1,
+        "name": "AirPods Pro Max",
+        "slug": "airpods-pro-max",
+        "price": 549.99,
+        "compare_price": 649.99,
+        "category_name": "Electronics",
+        "category_slug": "electronics",
+        "image_url": "images/airpods-pro-max.jfif",
+        "stock": 42,
+        "featured": true,
+        "rating": 4.8,
+        "review_count": 2341,
+        "description": "Premium wireless noise-cancelling headphones with adaptive transparency and spatial audio. Experience music the way it was meant to be heard.",
+        "tags": [
+            "wireless",
+            "noise-cancelling",
+            "premium"
+        ],
+        "sku": "SKU-APM001"
+    },
+    {
+        "id": 2,
+        "name": "Apple Watch Series 7",
+        "slug": "apple-watch-series-7",
+        "price": 399.99,
+        "compare_price": 429.99,
+        "category_name": "Wearables",
+        "category_slug": "wearables",
+        "image_url": "images/electronics.jfif",
+        "stock": 58,
+        "featured": true,
+        "rating": 4.7,
+        "review_count": 1890,
+        "description": "The latest Apple Watch with a larger display, faster charging, and enhanced durability. Stay connected and track your health with style.",
+        "tags": [
+            "smartwatch",
+            "fitness",
+            "health"
+        ],
+        "sku": "SKU-AWS001"
+    },
+    {
+        "id": 3,
+        "name": "MacBook Pro 16-inch",
+        "slug": "macbook-pro-16-inch",
+        "price": 2499.99,
+        "compare_price": 2799.99,
+        "category_name": "Computers",
+        "category_slug": "computers",
+        "image_url": "images/macbook-pro.jfif",
+        "stock": 15,
+        "featured": true,
+        "rating": 4.9,
+        "review_count": 3210,
+        "description": "Powerful performance with the M1 Pro chip, stunning Retina display, and all-day battery life. The ultimate laptop for professionals and creatives.",
+        "tags": [
+            "laptop",
+            "professional",
+            "creative"
+        ],
+        "sku": "SKU-MBP001"
+    },
+    {
+        "id": 4,
+        "name": "iPad Pro 12.9-inch",
+        "slug": "ipad-pro-12-9-inch",
+        "price": 1099.99,
+        "compare_price": 1199.99,
+        "category_name": "Tablets",
+        "category_slug": "tablets",
+        "image_url": "images/ipad-pro.jfif",
+        "stock": 30,
+        "featured": true,
+        "rating": 4.8,
+        "review_count": 2750,
+        "description": "The most advanced iPad with a stunning Liquid Retina XDR display, M1 chip performance, and versatile accessories. Perfect for work and play.",
+        "tags": [
+            "tablet",
+            "performance",
+            "versatile"
+        ],
+        "sku": "SKU-IPD001"
+    },
+    {
+        "id": 5,
+        "name": "AirPods Pro",
+        "slug": "airpods-pro",
+        "price": 249.99,
+        "compare_price": 279.99,
+        "category_name": "Audio",
+        "category_slug": "audio",
+        "image_url": "images/electronics.jfif",
+        "stock": 100,
+        "featured": true,
+        "rating": 4.7,
+        "review_count": 4500,
+        "description": "Wireless earbuds with active noise cancellation, transparency mode, and a customizable fit. Experience immersive sound and seamless connectivity.",
+        "tags": [
+            "wireless",
+            "noise-cancelling",
+            "earbuds"
+        ],
+        "sku": "SKU-AP001"
+    },
+    {
+        "id": 6,
+        "name": "HomePod mini",
+        "slug": "homepod-mini",
+        "price": 99.99,
+        "compare_price": 129.99,
+        "category_name": "Smart Home",
+        "category_slug": "smart-home",
+        "image_url": "images/electronics.jfif",
+        "stock": 75,
+        "featured": true,
+        "rating": 4.6,
+        "review_count": 1200,
+        "description": "Compact smart speaker with rich sound, Siri intelligence, and seamless integration with your Apple devices. Perfect for any room in your home.",
+        "tags": [
+            "smart speaker",
+            "Siri",
+            "home automation"
+        ],
+        "sku": "SKU-HPM001"
+    },
+    {
+        "id": 7,
+        "name": "Apple TV 4K",
+        "slug": "apple-tv-4k",
+        "price": 179.99,
+        "compare_price": 199.99,
+        "category_name": "Entertainment",
+        "category_slug": "entertainment",
+        "image_url": "images/electronics.jfif",
+        "stock": 40,
+        "featured": true,
+        "rating": 4.5,
+        "review_count": 800,
+        "description": "Stream your favorite shows and movies in stunning 4K HDR quality with the Apple TV 4K. Access a world of entertainment with the intuitive tvOS interface.",
+        "tags": [
+            "streaming",
+            "4K",
+            "entertainment"
+        ],
+        "sku": "SKU-ATV001"
+    },
+    {
+        "id": 8,
+        "name": "Magic Keyboard for iPad Pro",
+        "slug": "magic-keyboard-ipad-pro",
+        "price": 299.99,
+        "compare_price": 349.99,
+        "category_name": "Accessories",
+        "category_slug": "accessories",
+        "image_url": "images/electronics.jfif",
+        "stock": 20,
+        "featured": true,
+        "rating": 4.8,
+        "review_count": 1500,
+        "description": "The Magic Keyboard for iPad Pro features a floating cantilever design, backlit keys, and a built-in trackpad. Transform your iPad Pro into a versatile workstation.",
+        "tags": [
+            "keyboard",
+            "iPad accessory",
+            "backlit"
+        ],
+        "sku": "SKU-MK001"
+    },
+    {
+        "id": 9,
+        "name": "Merino Wool Sweater",
+        "slug": "merino-wool-sweater",
+        "price": 199.99,
+        "compare_price": 279.99,
+        "category_name": "Fashion",
+        "category_slug": "fashion",
+        "image_url": "images/merino-wool-sweater.jfif",
+        "stock": 45,
+        "featured": false,
+        "rating": 4.6,
+        "review_count": 543,
+        "description": "Ultra-fine 18.5 micron merino wool, ethically sourced from New Zealand farms.",
+        "tags": [
+            "merino",
+            "knitwear",
+            "sustainable"
+        ],
+        "sku": "SKU-MWS001"
+    },
+    {
+        "id": 10,
+        "name": "Marble Coffee Table",
+        "slug": "marble-coffee-table",
+        "price": 1249.99,
+        "compare_price": 1599.99,
+        "category_name": "Home & Living",
+        "category_slug": "home-living",
+        "image_url": "images/marble-coffee.jfif",
+        "stock": 7,
+        "featured": true,
+        "rating": 4.9,
+        "review_count": 128,
+        "description": "Calacatta marble top with brushed brass base. A statement piece in every living room.",
+        "tags": [
+            "marble",
+            "brass",
+            "statement"
+        ],
+        "sku": "SKU-MCT001"
+    },
+    {
+        "id": 11,
+        "name": "Linen Duvet Set",
+        "slug": "linen-duvet-set",
+        "price": 299.99,
+        "compare_price": 399.99,
+        "category_name": "Home & Living",
+        "category_slug": "home-living",
+        "image_url": "images/line-duvet.jfif",
+        "stock": 50,
+        "featured": false,
+        "rating": 4.7,
+        "review_count": 412,
+        "description": "Stone-washed French linen, naturally breathable and temperature-regulating for perfect sleep.",
+        "tags": [
+            "linen",
+            "bedding",
+            "organic"
+        ],
+        "sku": "SKU-LDS001"
+    },
+    {
+        "id": 12,
+        "name": "Walnut Dining Chair",
+        "slug": "walnut-dining-chair",
+        "price": 449.99,
+        "compare_price": null,
+        "category_name": "Home & Living",
+        "category_slug": "home-living",
+        "image_url": "images/walnut-dining.jfif",
+        "stock": 20,
+        "featured": false,
+        "rating": 4.8,
+        "review_count": 95,
+        "description": "Solid American black walnut with hand-woven rush seat for artisanal dining.",
+        "tags": [
+            "walnut",
+            "dining",
+            "handmade"
+        ],
+        "sku": "SKU-WDC001"
+    },
+    {
+        "id": 13,
+        "name": "La Mer Moisturizer",
+        "slug": "la-mer-moisturizer",
+        "price": 190.00,
+        "compare_price": null,
+        "category_name": "Beauty",
+        "category_slug": "beauty",
+        "image_url": "images/moisturizer.jfif",
+        "stock": 85,
+        "featured": true,
+        "rating": 4.9,
+        "review_count": 3241,
+        "description": "The legendary Crème de la Mer. 60ml jar of transformative hydration and skin renewal.",
+        "tags": [
+            "skincare",
+            "luxury",
+            "moisturizer"
+        ],
+        "sku": "SKU-LMM001"
+    },
+    {
+        "id": 14,
+        "name": "Chanel N°5 Parfum",
+        "slug": "chanel-no5-parfum",
+        "price": 420.00,
+        "compare_price": null,
+        "category_name": "Beauty",
+        "category_slug": "beauty",
+        "image_url": "images/perfume.jfif",
+        "stock": 32,
+        "featured": true,
+        "rating": 4.8,
+        "review_count": 1876,
+        "description": "The iconic floral aldehyde fragrance. 100ml Eau de Parfum that defines timeless elegance.",
+        "tags": [
+            "fragrance",
+            "chanel",
+            "iconic"
+        ],
+        "sku": "SKU-CH5001"
+    },
+    {
+        "id": 15,
+        "name": "Nike Air Max 270",
+        "slug": "nike-air-max-270",
+        "price": 149.99,
+        "compare_price": 179.99,
+        "category_name": "Sports",
+        "category_slug": "sports",
+        "image_url": "images/air-msx.jfif",
+        "stock": 120,
+        "featured": true,
+        "rating": 4.7,
+        "review_count": 5621,
+        "description": "Nike's largest Air unit yet delivers an extremely smooth and responsive ride.",
+        "tags": [
+            "nike",
+            "running",
+            "air"
+        ],
+        "sku": "SKU-NAM001"
+    },
+    {
+        "id": 16,
+        "name": "Yoga Mat Premium",
+        "slug": "yoga-mat-premium",
+        "price": 88.00,
+        "compare_price": 120.00,
+        "category_name": "Sports",
+        "category_slug": "sports",
+        "image_url": "images/yoga-mat.jfif",
+        "stock": 75,
+        "featured": false,
+        "rating": 4.8,
+        "review_count": 2190,
+        "description": "6mm natural rubber yoga mat with perfect grip, alignment lines and eco-friendly materials.",
+        "tags": [
+            "yoga",
+            "fitness",
+            "eco"
+        ],
+        "sku": "SKU-YMP001"
+    }
+]

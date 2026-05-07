@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>ArtMo - Product Catalog</title>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-logo">ArtMo</div>
+        <div class="loader-bar">
+            <div class="loader-fill" id="loaderFill"></div>
+        </div>
+        <div class="loader-text" id="loaderText">Loading products...</div>
+    </div>
+
+    <header id="nav">
+        <div class="nav-container">
+            <div class="logo"><a class="navlink" href="index.html">ArtMo</a></div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a class="navlink" href="index.html">Home</a></li>
+                    <li><a class="navlink" href="#gallery">Gallery</a></li>
+                    <li><a class="navlink" href="#services">Services</a></li>
+                    <li><a class="navlink" href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="nav-btn" onclick="toggleSearch()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                </button>
+                <button class="nav-btn" id="wishlistBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                </button>
+                <button class="nav-btn cart-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="nav-btn mobile-menu-toggle" id="mobileMenuToggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-links">
+                    <li><a class="mobile-nav-link" href="index.html">Home</a></li>
+                    <li><a class="mobile-nav-link" href="#gallery">Gallery</a></li>
+                    <li><a class="mobile-nav-link" href="#services">Services</a></li>
+                    <li><a class="mobile-nav-link" href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-copy">
+                    <span class="eyebrow">Product Catalog</span>
+                    <h1>Discover Our Complete Collection</h1>
+                    <p>Explore our curated selection of premium products across fashion, electronics, home & living,
+                        beauty, and sports categories.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="wearables">Wearables</option>
+                        <option value="computers">Computers</option>
+                        <option value="tablets">Tablets</option>
+                        <option value="audio">Audio</option>
+                        <option value="smart-home">Smart Home</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="home-living">Home & Living</option>
+                        <option value="beauty">Beauty</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priceFilter">Price Range:</label>
+                    <select id="priceFilter" class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="0-100">$0 - $100</option>
+                        <option value="100-500">$100 - $500</option>
+                        <option value="500-1000">$500 - $1000</option>
+                        <option value="1000+">$1000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortFilter">Sort By:</label>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="products-container">
+                <div class="products-header">
+                    <h2>Our Products</h2>
+                    <div class="products-count">
+                        <span id="productCount">0</span> products found
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated here -->
+        </div>
+
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">$0.00</span>
+            </div>
+            <div class="cart-total-row">
+                <span>Shipping</span>
+                <span id="cartShipping">Free</span>
+            </div>
+            <div class="cart-total-row">
+                <span>Tax (8%)</span>
+                <span id="cartTax">$0.00</span>
+            </div>
+            <div class="cart-total-row main">
+                <span>Total</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-primary full-width" onclick="checkout()">Checkout →</button>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .accent { fill: #2a3c5e; }
+      .bg { fill: #fafafa; }
+    </style>
+  </defs>
+  <rect width="32" height="32" rx="4" class="bg"/>
+  <path d="M8 6h16v4H8zM6 12h20v2H6zM8 16h14v2H8zM10 20h10v2H10z" class="accent"/>
+  <circle cx="16" cy="24" r="2" class="accent"/>
+</svg>
