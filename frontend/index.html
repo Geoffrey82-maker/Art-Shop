@@ -23,10 +23,10 @@
             <div class="logo"><a class="navlink" href="#home">ArtMo</a></div>
             <nav class="navbar">
                 <ul class="nav-links">
-                    <li><a class="navlink" href="#home">Home</a></li>
-                    <li><a class="navlink" href="#gallery">Gallery</a></li>
-                    <li><a class="navlink" href="#services">Services</a></li>
-                    <li><a class="navlink" href="#about">About</a></li>
+                    <li><a class="navlink" href="index.html">Home</a></li>
+                    <li><a class="navlink" href="gallery.html">Gallery</a></li>
+                    <li><a class="navlink" href="services.html">Services</a></li>
+                    <li><a class="navlink" href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,7 +51,7 @@
                 </svg>
                 <span class="cart-count" id="cartCount">0</span>
             </button>
-            <button class="nav-btn" id="authNavBtn" onclick="window.location.href='signup.html'">
+            <button class="nav-btn" id="authNavBtn" onclick="toggleUserProfile()">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
@@ -70,10 +70,10 @@
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
                 <ul class="mobile-nav-links">
-                    <li><a class="mobile-nav-link" href="#home">Home</a></li>
-                    <li><a class="mobile-nav-link" href="#gallery">Gallery</a></li>
-                    <li><a class="mobile-nav-link" href="#services">Services</a></li>
-                    <li><a class="mobile-nav-link" href="#about">About</a></li>
+                    <li><a class="mobile-nav-link" href="index.html">Home</a></li>
+                    <li><a class="mobile-nav-link" href="gallery.html">Gallery</a></li>
+                    <li><a class="mobile-nav-link" href="services.html">Services</a></li>
+                    <li><a class="mobile-nav-link" href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -132,6 +132,57 @@
                 <span>$5000</span>
             </div>
             <button class="btn-primary full-width" onclick="toggleCart();showPage('checkout')">Checkout →</button>
+        </div>
+    </div>
+
+    <!-- User Profile Drawer -->
+    <div class="user-overlay" id="userOverlay" onclick="toggleUserProfile()"></div>
+    <div class="user-drawer" id="userDrawer">
+        <div class="user-header">
+            <h3>My Account</h3>
+            <button onclick="toggleUserProfile()">✕</button>
+        </div>
+        <div class="user-content">
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <div class="avatar-placeholder" id="userAvatarPlaceholder">U</div>
+                </div>
+                <div class="user-info">
+                    <h4 id="userDisplayName">User Name</h4>
+                    <p id="userDisplayEmail">user@email.com</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    <span>Edit Profile</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 1v22M4.22 4.22l15.56 15.56M1 12h22M4.22 19.78L19.78 4.22" />
+                    </svg>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8v4m0 4v.01M4.22 4.22a9 9 0 1 1 12.73 12.73A9 9 0 0 1 4.22 4.22z" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="user-footer">
+                <button class="btn-ghost full-width" id="logoutBtn" onclick="handleLogout()">Log Out</button>
+            </div>
         </div>
     </div>
 
@@ -413,6 +464,7 @@
     <script src="script.js"></script>
     <script src="cart.js"></script>
     <script src="app.js"></script>
+    <script src="auth.js"></script>
 </body>
 
 </html>

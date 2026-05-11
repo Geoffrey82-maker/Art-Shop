@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>ArtMo - About</title>
+</head>
+
+<body>
+    <header id="nav">
+        <div class="nav-container">
+            <div class="logo"><a class="navlink" href="index.html">ArtMo</a></div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a class="navlink" href="index.html">Home</a></li>
+                    <li><a class="navlink" href="gallery.html">Gallery</a></li>
+                    <li><a class="navlink" href="services.html">Services</a></li>
+                    <li><a class="navlink" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="icon-btn nav-actions">
+            <button class="nav-btn" onclick="toggleSearch()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+            </button>
+            <button class="nav-btn" id="wishlistBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+            </button>
+            <button class="nav-btn cart-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="nav-btn" id="authNavBtn" onclick="toggleUserProfile()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+            </button>
+            <button class="nav-btn mobile-menu-toggle" id="mobileMenuToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-links">
+                    <li><a class="mobile-nav-link" href="index.html">Home</a></li>
+                    <li><a class="mobile-nav-link" href="gallery.html">Gallery</a></li>
+                    <li><a class="mobile-nav-link" href="services.html">Services</a></li>
+                    <li><a class="mobile-nav-link" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" onclick="toggleSearch()">✕</button>
+        <div class="search-inner">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products..."
+                autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter"></div>
+    </div>
+
+    <!-- User Profile Drawer -->
+    <div class="user-overlay" id="userOverlay" onclick="toggleUserProfile()"></div>
+    <div class="user-drawer" id="userDrawer">
+        <div class="user-header">
+            <h3>My Account</h3>
+            <button onclick="toggleUserProfile()">✕</button>
+        </div>
+        <div class="user-content">
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <div class="avatar-placeholder" id="userAvatarPlaceholder">U</div>
+                </div>
+                <div class="user-info">
+                    <h4 id="userDisplayName">User Name</h4>
+                    <p id="userDisplayEmail">user@email.com</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    <span>Edit Profile</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 1v22M4.22 4.22l15.56 15.56M1 12h22M4.22 19.78L19.78 4.22" />
+                    </svg>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8v4m0 4v.01M4.22 4.22a9 9 0 1 1 12.73 12.73A9 9 0 0 1 4.22 4.22z" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="user-footer">
+                <button class="btn-ghost full-width" id="logoutBtn" onclick="handleLogout()">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy scroll-reveal">
+                <span class="eyebrow">About ArtMo</span>
+                <h1>Built for curated design and thoughtful living</h1>
+                <p>ArtMo brings together premium products across fashion, tech, home, beauty, and lifestyle with a
+                    refined and personalized shopping experience.</p>
+            </div>
+        </section>
+
+        <section class="section-header scroll-reveal">
+            <span class="eyebrow">Our Story</span>
+            <h2>A modern marketplace for inspired living</h2>
+            <p>We believe great design should be accessible, effortless, and meaningful. Every collection is selected to
+                inspire your space and your lifestyle.</p>
+        </section>
+
+        <section class="about-content scroll-reveal">
+            <div class="about-text">
+                <h3>Our Mission</h3>
+                <p>We curate exceptional products from independent makers and premium brands, helping customers discover
+                    pieces that elevate everyday moments.</p>
+                <h3>Our Promise</h3>
+                <p>With thoughtful sourcing, fast support, and reliable delivery, we make shopping feel luxurious and
+                    simple from start to finish.</p>
+            </div>
+            <div class="about-highlights">
+                <article class="highlight-card">
+                    <h4>Curated Selection</h4>
+                    <p>Hand-picked products chosen for quality, craftsmanship, and visual appeal.</p>
+                </article>
+                <article class="highlight-card">
+                    <h4>Customer Care</h4>
+                    <p>Personalized support and hassle-free service for every purchase.</p>
+                </article>
+                <article class="highlight-card">
+                    <h4>Design Focused</h4>
+                    <p>Every collection is shaped around modern lifestyle, creativity, and lasting value.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <h3>ArtMo</h3>
+                    <p>Curating exceptional art and lifestyle products for the discerning collector.</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+</body>
+
+</html>

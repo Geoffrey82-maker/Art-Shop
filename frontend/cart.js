@@ -52,6 +52,14 @@ function toggleCart() {
         drawer.classList.toggle('open');
         overlay.classList.toggle('open');
 
+        // Close user profile drawer if open
+        const userDrawer = document.getElementById('userDrawer');
+        const userOverlay = document.getElementById('userOverlay');
+        if (userDrawer && userDrawer.classList.contains('open')) {
+            userDrawer.classList.remove('open');
+            userOverlay.classList.remove('open');
+        }
+
         // Prevent body scroll when cart is open
         document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
     }

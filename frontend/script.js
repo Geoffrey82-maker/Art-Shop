@@ -31,17 +31,17 @@ function initNav() {
     window.addEventListener('scroll', () => {
         document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
     });
-    
+
     // Mobile menu toggle
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (mobileMenuToggle && mobileMenu) {
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
             mobileMenuToggle.classList.toggle('active');
         });
-        
+
         // Close mobile menu when clicking on a link
         mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
@@ -49,7 +49,7 @@ function initNav() {
                 mobileMenuToggle.classList.remove('active');
             });
         });
-        
+
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
@@ -186,5 +186,23 @@ function toggleSearch() {
     } else {
         document.getElementById('searchInput').value = '';
         document.getElementById('searchResults').innerHTML = '';
+    }
+}
+
+// USER PROFILE
+function toggleUserProfile() {
+    const drawer = document.getElementById('userDrawer');
+    const overlay = document.getElementById('userOverlay');
+    if (drawer && overlay) {
+        drawer.classList.toggle('open');
+        overlay.classList.toggle('open');
+
+        // Close cart drawer if open
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartOverlay = document.getElementById('cartOverlay');
+        if (cartDrawer && cartDrawer.classList.contains('open')) {
+            cartDrawer.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
     }
 }

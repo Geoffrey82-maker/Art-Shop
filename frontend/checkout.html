@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>Checkout - ArtMo</title>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-logo">ArtMo</div>
+        <div class="loader-bar">
+            <div class="loader-fill" id="loaderFill"></div>
+        </div>
+        <div class="loader-text" id="loaderText">Processing...</div>
+    </div>
+    <div class="toast-notification" id="toastContainer"></div>
+
+    <header id="nav">
+        <div class="nav-container">
+            <div class="logo"><a class="navlink" href="index.html">ArtMo</a></div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a class="navlink" href="index.html">Home</a></li>
+                    <li><a class="navlink" href="gallery.html">Gallery</a></li>
+                    <li><a class="navlink" href="services.html">Services</a></li>
+                    <li><a class="navlink" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="icon-btn nav-actions">
+            <button class="nav-btn" onclick="toggleSearch()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+            </button>
+            <button class="nav-btn cart-btn" onclick="window.location.href='index.html'">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="nav-btn" id="authNavBtn" onclick="toggleUserProfile()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Search overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <button class="search-close" onclick="toggleSearch()">✕</button>
+        <div class="search-inner">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products..."
+                autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- User Profile Drawer -->
+    <div class="user-overlay" id="userOverlay" onclick="toggleUserProfile()"></div>
+    <div class="user-drawer" id="userDrawer">
+        <div class="user-header">
+            <h3>My Account</h3>
+            <button onclick="toggleUserProfile()">✕</button>
+        </div>
+        <div class="user-content">
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <div class="avatar-placeholder" id="userAvatarPlaceholder">U</div>
+                </div>
+                <div class="user-info">
+                    <h4 id="userDisplayName">User Name</h4>
+                    <p id="userDisplayEmail">user@email.com</p>
+                </div>
+            </div>
+            <div class="user-menu">
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    <span>Edit Profile</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 1v22M4.22 4.22l15.56 15.56M1 12h22M4.22 19.78L19.78 4.22" />
+                    </svg>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="user-menu-item" onclick="event.preventDefault(); toggleUserProfile();">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8v4m0 4v.01M4.22 4.22a9 9 0 1 1 12.73 12.73A9 9 0 0 1 4.22 4.22z" />
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="user-footer">
+                <button class="btn-ghost full-width" id="logoutBtn" onclick="handleLogout()">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="checkout-page">
+        <section class="checkout-hero">
+            <div class="checkout-header scroll-reveal">
+                <span class="eyebrow">Order Details</span>
+                <h1>Complete Your Purchase</h1>
+                <p>Review your cart and complete your order securely.</p>
+            </div>
+        </section>
+
+        <section class="checkout-container">
+            <div class="checkout-content">
+                <!-- Checkout Form -->
+                <form class="checkout-form" id="checkoutForm">
+                    <!-- Shipping Address Section -->
+                    <div class="checkout-section">
+                        <h2>Shipping Address</h2>
+                        <div class="address-options">
+                            <div class="address-selector" id="addressSelector">
+                                <!-- Saved addresses will be loaded here -->
+                            </div>
+                            <button type="button" class="btn-secondary" id="newAddressBtn">
+                                + Add New Address
+                            </button>
+                        </div>
+
+                        <!-- New Address Form (Hidden by default) -->
+                        <div class="new-address-form" id="newAddressForm" style="display:none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addressLabel">Address Label</label>
+                                    <input type="text" id="addressLabel" placeholder="e.g., Home, Office"
+                                        value="Home" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="street">Street Address *</label>
+                                    <input type="text" id="street" placeholder="Street address" required />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" placeholder="City" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" id="state" placeholder="State" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="zip">Zip Code</label>
+                                    <input type="text" id="zip" placeholder="Zip code" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <input type="text" id="country" placeholder="Country" required />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="checkbox-group">
+                                    <input type="checkbox" id="setDefault" />
+                                    <span>Set as default address</span>
+                                </label>
+                            </div>
+
+                            <button type="button" class="btn-secondary" id="cancelNewAddress">Cancel</button>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Method Section -->
+                    <div class="checkout-section">
+                        <h2>Shipping Method</h2>
+                        <div class="shipping-options">
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="0" checked />
+                                <div class="shipping-option-content">
+                                    <span class="shipping-name">Standard Shipping</span>
+                                    <span class="shipping-time">5-7 business days</span>
+                                </div>
+                                <span class="shipping-price">Free</span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="15" />
+                                <div class="shipping-option-content">
+                                    <span class="shipping-name">Express Shipping</span>
+                                    <span class="shipping-time">2-3 business days</span>
+                                </div>
+                                <span class="shipping-price">$15.00</span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="35" />
+                                <div class="shipping-option-content">
+                                    <span class="shipping-name">Overnight Shipping</span>
+                                    <span class="shipping-time">Next business day</span>
+                                </div>
+                                <span class="shipping-price">$35.00</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Section -->
+                    <div class="checkout-section">
+                        <h2>Payment Method</h2>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="credit_card" checked />
+                                <span>Credit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="debit_card" />
+                                <span>Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment_method" value="paypal" />
+                                <span>PayPal</span>
+                            </label>
+                        </div>
+
+                        <!-- Credit Card Form -->
+                        <div class="payment-form" id="creditCardForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card *</label>
+                                    <input type="text" id="cardName" placeholder="Full name" required />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456"
+                                        maxlength="19" required />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date *</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV *</label>
+                                    <input type="text" id="cvv" placeholder="123" maxlength="4" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Notes Section -->
+                    <div class="checkout-section">
+                        <h2>Order Notes</h2>
+                        <div class="form-group">
+                            <label for="orderNotes">Special instructions or notes for your order</label>
+                            <textarea id="orderNotes" placeholder="Any special requests or instructions..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="checkout-section">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="agreeTerms" required />
+                            <span>I agree to the <a href="#" onclick="event.preventDefault();">Terms and
+                                    Conditions</a> and <a href="#"
+                                    onclick="event.preventDefault();">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary checkout-btn">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+
+            <!-- Order Summary Sidebar -->
+            <aside class="checkout-sidebar">
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-items" id="summaryItems">
+                        <!-- Cart items will be displayed here -->
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotalAmount">$0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shippingAmount">Free</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tax (8%)</span>
+                        <span id="taxAmount">$0.00</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="totalAmount">$0.00</span>
+                    </div>
+
+                    <div class="security-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        <span>Your payment is secure and encrypted</span>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2024 ArtMo. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="auth.js"></script>
+    <script src="checkout.js"></script>
+</body>
+
+</html>

@@ -24,12 +24,12 @@
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a class="navlink" href="index.html">Home</a></li>
-                    <li><a class="navlink" href="#gallery">Gallery</a></li>
-                    <li><a class="navlink" href="#services">Services</a></li>
-                    <li><a class="navlink" href="#about">About</a></li>
+                    <li><a class="navlink" href="gallery.html">Gallery</a></li>
+                    <li><a class="navlink" href="services.html">Services</a></li>
+                    <li><a class="navlink" href="about.html">About</a></li>
                 </ul>
             </nav>
-            <div class="nav-actions">
+            <div class="icon-btn nav-actions">
                 <button class="nav-btn" onclick="toggleSearch()">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="11" cy="11" r="8" />
@@ -50,6 +50,12 @@
                     </svg>
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
+                <button class="nav-btn" id="authNavBtn" onclick="toggleUserProfile()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </button>
                 <button class="nav-btn mobile-menu-toggle" id="mobileMenuToggle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <line x1="3" y1="12" x2="21" y2="12" />
@@ -65,9 +71,9 @@
             <nav class="mobile-nav">
                 <ul class="mobile-nav-links">
                     <li><a class="mobile-nav-link" href="index.html">Home</a></li>
-                    <li><a class="mobile-nav-link" href="#gallery">Gallery</a></li>
-                    <li><a class="mobile-nav-link" href="#services">Services</a></li>
-                    <li><a class="mobile-nav-link" href="#about">About</a></li>
+                    <li><a class="mobile-nav-link" href="gallery.html">Gallery</a></li>
+                    <li><a class="mobile-nav-link" href="services.html">Services</a></li>
+                    <li><a class="mobile-nav-link" href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
