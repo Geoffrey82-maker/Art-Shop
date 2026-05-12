@@ -223,14 +223,8 @@ function checkout() {
     // Close cart drawer
     toggleCart();
 
-    // Show checkout message (you can replace this with actual checkout logic)
-    alert(`Checkout functionality would be implemented here.\n\nTotal: $${cart.total.toFixed(2)}\nItems: ${cart.items.length}`);
-
-    // For now, just clear the cart after "checkout"
-    // cart.items = [];
-    // updateCartCalculations();
-    // updateCartUI();
-    // saveCartToStorage();
+    // Redirect to checkout page
+    window.location.href = 'checkout.html';
 }
 
 // Clear cart
